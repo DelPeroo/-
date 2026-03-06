@@ -43,3 +43,4 @@ foreach (string word in words)
     Console.Write(new string(chars) + " ");
 }
 // проверка работы с комитом
+//Еще одна проерка, теперь называю комит латиницей
