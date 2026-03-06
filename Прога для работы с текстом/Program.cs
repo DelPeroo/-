@@ -42,3 +42,4 @@ foreach (string word in words)
     Array.Reverse(chars);
     Console.Write(new string(chars) + " ");
 }
+// проверка работы с комитом
