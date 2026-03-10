@@ -1,12 +1,16 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System; 
 Console.WriteLine("Привет введи строку для вывода ее свойств\n");
 string Stroka = Console.ReadLine();
 
 int Long = Stroka.Length;
 Console.WriteLine($"Кол-во символов в вашей строке {Long}");
 
-string[] words = Stroka.Split(' ');
+
+char[] separators = new char[] { ' ', '.', ',', '!', '?', ';', ':', '-' };
+string[] words = Stroka.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
 string Stroka1 = Stroka.Replace(" ", "");
 int Long1 = Stroka1.Length;
 Console.WriteLine($"Кол-во символов в вашей строке без пробелов {Long1}");
@@ -26,21 +30,18 @@ foreach (string word in words)
     {
         wordsCounts.Add(loverWord, 1);
     }
-
 }
 
 var topWords = wordsCounts.OrderByDescending(x => x.Value).Take(3);
-
 
 foreach (var item in topWords)
 {
     Console.WriteLine($"{item.Key}: {item.Value} раз");
 }
+
 foreach (string word in words)
 {
     char[] chars = word.ToCharArray();
     Array.Reverse(chars);
     Console.Write(new string(chars) + " ");
 }
-// проверка работы с комитом
-//Еще одна проерка, теперь называю комит латиницей
